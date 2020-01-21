@@ -1,5 +1,5 @@
 //
-//  MessageTableViewCell.swift
+//  SendMessageTableViewCell.swift
 //  Messenger_Gradient_Demo
 //
 //  Created by Kai-Ping Tseng on 2020/1/20.
@@ -8,21 +8,22 @@
 
 import UIKit
 
-class MessageTableViewCell: UITableViewCell {
+class SendMessageTableViewCell: UITableViewCell {
     
-    let type: Message.messageType = .receive
-    
+    // UI components
     let contentLabel = PaddingLabel()
-    
-    var id: Int = 0
     
     var holeView = UIView()
     
+    
+    // For fb message style
     var contentLabelPath = UIBezierPath()
+    
     var holeViewPath = UIBezierPath()
     
     let maskLayer = CAShapeLayer()
 
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -55,6 +56,9 @@ class MessageTableViewCell: UITableViewCell {
         contentLabel.numberOfLines = 0
         contentLabel.font = UIFont.systemFont(ofSize: 15)
         contentLabel.autoresizingMask = []
+        contentLabel.textAlignment = .right
+        contentLabel.textColor = .white
+        contentLabel.backgroundColor = .clear
         
         addSubview(contentLabel)
         
@@ -63,39 +67,14 @@ class MessageTableViewCell: UITableViewCell {
         contentLabel.translatesAutoresizingMaskIntoConstraints = false
         contentLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         contentLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
-        
+        contentLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
     }
     
-    func updateContent(with id: Int, messageType: Message.messageType, content: String) {
-        
-        self.id = id
-        
+    func updateContent(with content: String) {
         contentLabel.text = content
-        
-        let leftConstraint = contentLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20)
-        let rightConstraint = contentLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -20)
-                
-//        switch messageType {
-//        case .receive:
-//            contentLabel.textAlignment = .left
-//            contentLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-//            leftConstraint.isActive = true
-//            rightConstraint.isActive = false
-//            contentLabel.textColor = .black
-//
-//        case .send:
-            contentLabel.textAlignment = .right
-            rightConstraint.isActive = true
-            leftConstraint.isActive = false
-            contentLabel.textColor = .white
-            contentLabel.backgroundColor = .clear
-//        }
-        
-//        contentLabel.sizeToFit()
     }
     
     func addHoleSubview() {
-        holeView = UIView(frame: bounds)
         holeView.backgroundColor = .white
         holeView.autoresizingMask = []
         

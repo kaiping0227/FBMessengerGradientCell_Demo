@@ -13,8 +13,9 @@
 		15287D5823D5508600F83651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15287D5623D5508600F83651 /* Main.storyboard */; };
 		15287D5A23D5508800F83651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15287D5923D5508800F83651 /* Assets.xcassets */; };
 		15287D5D23D5508800F83651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15287D5B23D5508800F83651 /* LaunchScreen.storyboard */; };
-		15287D6523D5570500F83651 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15287D6423D5570500F83651 /* MessageTableViewCell.swift */; };
+		15287D6523D5570500F83651 /* SendMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15287D6423D5570500F83651 /* SendMessageTableViewCell.swift */; };
 		15287D6723D56C2600F83651 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15287D6623D56C2600F83651 /* PaddingLabel.swift */; };
+		15287D6923D6E49600F83651 /* ReceiveMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15287D6823D6E49600F83651 /* ReceiveMessageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		15287D5923D5508800F83651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15287D5C23D5508800F83651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15287D5E23D5508800F83651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15287D6423D5570500F83651 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		15287D6423D5570500F83651 /* SendMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageTableViewCell.swift; sourceTree = "<group>"; };
 		15287D6623D56C2600F83651 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		15287D6823D6E49600F83651 /* ReceiveMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveMessageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,8 @@
 				15287D5023D5508600F83651 /* AppDelegate.swift */,
 				15287D5223D5508600F83651 /* SceneDelegate.swift */,
 				15287D5423D5508600F83651 /* ViewController.swift */,
-				15287D6423D5570500F83651 /* MessageTableViewCell.swift */,
+				15287D6423D5570500F83651 /* SendMessageTableViewCell.swift */,
+				15287D6823D6E49600F83651 /* ReceiveMessageTableViewCell.swift */,
 				15287D6623D56C2600F83651 /* PaddingLabel.swift */,
 				15287D5623D5508600F83651 /* Main.storyboard */,
 				15287D5923D5508800F83651 /* Assets.xcassets */,
@@ -146,7 +149,8 @@
 			files = (
 				15287D5523D5508600F83651 /* ViewController.swift in Sources */,
 				15287D6723D56C2600F83651 /* PaddingLabel.swift in Sources */,
-				15287D6523D5570500F83651 /* MessageTableViewCell.swift in Sources */,
+				15287D6523D5570500F83651 /* SendMessageTableViewCell.swift in Sources */,
+				15287D6923D6E49600F83651 /* ReceiveMessageTableViewCell.swift in Sources */,
 				15287D5123D5508600F83651 /* AppDelegate.swift in Sources */,
 				15287D5323D5508600F83651 /* SceneDelegate.swift in Sources */,
 			);

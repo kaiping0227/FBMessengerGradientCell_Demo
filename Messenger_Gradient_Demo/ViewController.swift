@@ -51,7 +51,8 @@ class ViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(MessageTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(SendMessageTableViewCell.self, forCellReuseIdentifier: "sendCell")
+        tableView.register(ReceiveMessageTableViewCell.self, forCellReuseIdentifier: "receiveCell")
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         
@@ -66,31 +67,36 @@ class ViewController: UIViewController {
     
     private func mockCells() {
         messages = [
-            Message(id: 1, type: .send, content: "早安啊"),
-            Message(id: 2, type: .receive, content: "早"),
-            Message(id: 3, type: .send, content: "Hello"),
-            Message(id: 4, type: .receive, content: "講幾次"),
-            Message(id: 5, type: .send, content: "早安啊"),
-            Message(id: 6, type: .receive, content: "早安啊"),
-            Message(id: 7, type: .receive, content: "早安啊"),
-            Message(id: 8, type: .receive, content: "早安啊"),
-            Message(id: 9, type: .send, content: "早安啊"),
-            Message(id: 10, type: .receive, content: "早安啊"),
-            Message(id: 11, type: .send, content: "早安啊"),
-            Message(id: 12, type: .send, content: "早安啊"),
-            Message(id: 13, type: .receive, content: "早安啊"),
-            Message(id: 14, type: .send, content: "早安啊"),
-            Message(id: 15, type: .send, content: "早安啊"),
-            Message(id: 16, type: .receive, content: "早安啊"),
-            Message(id: 17, type: .send, content: "早安啊"),
-            Message(id: 18, type: .send, content: "早安啊"),
-            Message(id: 19, type: .receive, content: "早"),
-            Message(id: 20, type: .receive, content: "早"),
-            Message(id: 21, type: .receive, content: "早"),
-            Message(id: 22, type: .receive, content: "早"),
-            Message(id: 23, type: .receive, content: "早"),
-            Message(id: 24, type: .receive, content: "早"),
-            Message(id: 25, type: .receive, content: "早"),
+            Message(id: 1, type: .send, content: "good morning!"),
+            Message(id: 2, type: .receive, content: "Hi"),
+            Message(id: 3, type: .send, content: "good morning!"),
+            Message(id: 4, type: .receive, content: "???"),
+            Message(id: 5, type: .send, content: "good morning!"),
+            Message(id: 6, type: .receive, content: "good morning!"),
+            Message(id: 7, type: .receive, content: "good morning!"),
+            Message(id: 8, type: .receive, content: "good morning!"),
+            Message(id: 9, type: .send, content: "good morning!"),
+            Message(id: 10, type: .receive, content: "good morning!"),
+            Message(id: 11, type: .send, content: "???"),
+            Message(id: 12, type: .send, content: "good morning!"),
+            Message(id: 13, type: .receive, content: "good morning!"),
+            Message(id: 14, type: .send, content: "wat??"),
+            Message(id: 15, type: .send, content: "good morning!"),
+            Message(id: 16, type: .receive, content: "?????"),
+            Message(id: 17, type: .send, content: "?????"),
+            Message(id: 18, type: .send, content: "..."),
+            Message(id: 19, type: .receive, content: "bye"),
+            Message(id: 20, type: .receive, content: "bye"),
+            Message(id: 21, type: .receive, content: "bye"),
+            Message(id: 22, type: .receive, content: "bye"),
+            Message(id: 23, type: .receive, content: "bye"),
+            Message(id: 24, type: .send, content: "good morning!"),
+            Message(id: 25, type: .receive, content: "good morning!"),
+            Message(id: 26, type: .receive, content: "good morning!"),
+            Message(id: 27, type: .receive, content: "good morning!"),
+            Message(id: 28, type: .send, content: "good morning!"),
+            Message(id: 29, type: .receive, content: "good morning!"),
+            Message(id: 30, type: .send, content: "???")
         ]
     }
 
@@ -102,13 +108,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MessageTableViewCell else { return UITableViewCell() }
         
         let message = messages[indexPath.row]
         
-        cell.updateContent(with: message.id, messageType: message.type, content: message.content)
-        
-        return cell
+        switch message.type {
+        case .receive:
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "receiveCell", for: indexPath) as? ReceiveMessageTableViewCell else { return UITableViewCell() }
+            cell.updateContent(with: message.content)
+            return cell
+            
+        case .send:
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sendCell", for: indexPath) as? SendMessageTableViewCell else { return UITableViewCell() }
+            cell.updateContent(with: message.content)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
